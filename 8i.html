@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8i</title>
+</head>
+<body>
+  <button onclick="
+    playGame('heads');
+    ">heads</button>
+  <button onclick="
+    playGame('tails');
+  ">tails</button>
+  <script>
+    let guess = '';
+    const score = JSON.parse(localStorage.getItem('scorex')) || {wins: 0, losses: 0}
+
+    function playGame(guess) {
+      let randomNumber = Math.random();
+      let computerPick = randomNumber < 0.5 ? 'heads' : 'tails';
+
+      if (guess === computerPick) {
+        score.wins += 1;
+        console.log('You wins.');
+      } else {
+        score.losses += 1;
+        console.log('You lose.')
+      }
+      console.log(score)
+      localStorage.setItem('scorex', JSON.stringify(score));
+    }
+
+  </script>
+</body>
+</html>

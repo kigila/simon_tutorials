@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9H</title>
+</head>
+<body>
+  <input type="text" onkeyup="
+      handlePress();
+    ">
+  <p></p>
+
+  <script>
+    function handlePress() {
+      document.querySelector('p').innerHTML =  document.querySelector('input').value;
+    }
+  </script>
+</body>
+</html>

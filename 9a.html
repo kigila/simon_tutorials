@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9a</title>
+</head>
+<body>
+  <button>9a</button>
+  <button class="js-9b">9b</button>
+  <br />
+  <button onclick="
+    displayPick('heads')
+  ">heads</button>
+  <button onclick="
+    displayPick('tails')
+  ">tails</button>
+  <p></p>
+
+  <hr/>
+  <input onkeydown="
+    handleKeydownPress(event);
+  "/>
+  <button onclick="
+    clicked();
+  ">Submit</button>
+
+  <h1></h1>
+
+  <script>
+    function handleKeydownPress(event) {
+      if (event.key === 'Enter') {
+        return document.querySelector('h1').innerHTML = `Your name is: ${document.querySelector('input').value}`;
+      }
+    }
+
+    const clicked = () => {
+      document.querySelector('h1').innerHTML = `Your name is: ${document.querySelector('input').value}`;
+    }
+
+    console.log(typeof(clicked))
+    console.log(clicked)
+
+    function displayPick(guess) {
+      document.querySelector('p').innerHTML = `You chose: ${guess}`;
+    }
+
+    console.log(document.querySelector('button'));
+    document.querySelector('.js-9b')
+      .innerHTML = '9b done!';
+  </script>
+</body>
+</html>

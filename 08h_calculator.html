@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator with functions 8h</title>
+  <style>
+    .conteiner {
+      width: 50%;
+      height: 150px;
+      margin: auto;
+      background-color: rgb(198, 243, 228);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #362f2f;
+      font-size: larger;
+      font-weight: 700;
+
+    }
+    .pad {
+      width: 50%;
+      margin: auto;
+    }
+    .board {
+      position: relative;
+      background-color: rgb(247, 168, 139);
+      width: 60%;
+      margin: 10% auto;
+      padding: 5px;
+    }
+    .reset {
+      position: absolute;
+      bottom: 20px;
+      right: 25%;
+      width: 100px;
+      background-color: yellowgreen;
+    }
+
+  </style>
+</head>
+<body>
+  <p>
+    <button onclick="
+      updateCalculation('1');
+    ">1</button>
+
+    <button onclick="
+      updateCalculation('2');
+    ">2</button>
+
+    <button onclick="
+      updateCalculation('3');
+    ">3</button>
+
+    <button onclick="
+      updateCalculation(' + ');
+    ">+</button>
+  </p>
+
+  <p>
+    <button onclick="
+      updateCalculation('4');
+    ">4</button>
+
+    <button onclick="
+      updateCalculation('5');
+    ">5</button>
+
+    <button onclick="
+      updateCalculation('6');
+    ">6</button>
+
+    <button onclick="
+      updateCalculation(' - ');
+    ">-</button>
+  </p>
+
+  <p>
+    <button onclick="
+      updateCalculation('7');
+    ">7</button>
+
+    <button onclick="
+      updateCalculation('8');
+    ">8</button>
+
+    <button onclick="
+      updateCalculation('9');
+    ">9</button>
+
+    <button onclick="
+      updateCalculation(' * ');
+    ">*</button>
+  </p>
+
+  <p>
+    <button onclick="
+      updateCalculation('0');
+    ">0</button>
+
+    <button onclick="
+      updateCalculation('.');
+    ">.</button>
+
+    <button onclick="
+      // Note: eval() takes a string and runs it as code.
+      // Avoid using eval() in real world projects since
+      // it can potentially be given harmful code to run.
+      // Only use eval() for learning purposes.
+      calculation = eval(calculation);
+      console.log(calculation);
+    ">=</button>
+
+    <button onclick="
+      updateCalculation(' / ');
+    ">/</button>
+  </p>
+
+  <p>
+    <button onclick="
+      calculation = '';
+      localStorage.removeItem('calculation');
+      console.log(calculation);
+    ">Clear</button>
+  </p>
+
+  <script>
+    let calculation = localStorage.getItem('calculation') || '';
+
+    function updateCalculation(value) {
+      calculation += value;
+      localStorage.setItem('calculation', `${calculation}`);
+      console.log(calculation);
+    }
+  </script>
+</body>
+</html>

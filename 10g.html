@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10g</title>
+  <style>
+    .amazon-btn {
+      background-color: rgb(255, 216, 20);
+      border: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      padding: 10px 50px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .uber-btn {
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin-right: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &.now {
+        background-color: black;
+        color: white;
+      }
+    }
+
+    .gaming {
+      font-size: 20px;
+      padding: 10px 30px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .is_toggled {
+      background-color: black;
+      color: white;
+    }
+
+
+  </style>
+</head>
+<body>
+  <button class="gaming" onclick="
+    this.classList.contains('is_toggled') ? this.classList.remove('is_toggled') : this.classList.add('is_toggled');
+  ">Gaming</button>
+    <hr>
+  <button class="gaming game" onclick="
+    toggleBtn('.game')
+  ">Gaming</button>
+  <button class="gaming music" onclick="
+    toggleBtn('.music')
+  ">Music</button>
+  <button class="gaming tech" onclick="
+    toggleBtn('.tech')
+  ">Tech</button>
+
+
+
+  <script>
+    function toggleBtn(params) {
+      let toggled = document.querySelector('.is_toggled');
+
+      if (toggled) {
+        if (document.querySelector(params).classList.contains('is_toggled')) {
+          document.querySelector(params).classList.remove('is_toggled')
+        } else {
+          toggled.classList.remove('is_toggled')
+          document.querySelector(params).classList.add('is_toggled')
+        };
+      } else {
+        document.querySelector(params).classList.add('is_toggled');
+      }
+
+    }
+
+  </script>
+</body>
+</html>

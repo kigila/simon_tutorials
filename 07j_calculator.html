@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator with functions</title>
+  <style>
+    .conteiner {
+      width: 50%;
+      height: 150px;
+      margin: auto;
+      background-color: rgb(198, 243, 228);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #362f2f;
+      font-size: larger;
+      font-weight: 700;
+
+    }
+    .pad {
+      width: 50%;
+      margin: auto;
+    }
+    .board {
+      position: relative;
+      background-color: rgb(247, 168, 139);
+      width: 60%;
+      margin: 10% auto;
+      padding: 5px;
+    }
+    .reset {
+      position: absolute;
+      bottom: 20px;
+      right: 25%;
+      width: 100px;
+      background-color: yellowgreen;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="board">
+    <section id="conteiner" class="conteiner"></section>
+
+
+    <section class="pad">
+    <p>
+      <button onclick="
+        updateCalculation('1');
+        ">1</button>
+      <button onclick="
+        updateCalculation('2');
+        ">2</button>
+      <button onclick="
+        updateCalculation(3);
+        ">3</button>
+      <button onclick="
+        updateCalculation(' + ');
+        ">+</button>
+    </p>
+    <p>
+      <button onclick="
+        updateCalculation('4');
+        ">4</button>
+      <button onclick="
+        updateCalculation('5');
+        ">5</button>
+      <button onclick="
+        updateCalculation('6');
+        ">6</button>
+      <button onclick="
+        updateCalculation(' - ');
+        ">-</button>
+    </p>
+    <p>
+      <button onclick="
+        updateCalculation('7');
+        ">7</button>
+      <button onclick="
+        updateCalculation('8')
+        ">8</button>
+      <button onclick="
+        updateCalculation('9');
+        ">9</button>
+      <button onclick="
+        updateCalculation(' * ');
+        ">*</button>
+    </p>
+    <p>
+      <button onclick="
+        updateCalculation('0');
+        ">0</button>
+
+      <button onclick="
+        updateCalculation('.');
+        ">.</button>
+
+      <button onclick="
+        updateCalculation('=');
+        ">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+        ">/</button>
+    </p>
+    </section>
+
+    <button class="reset" onclick="
+      updateCalculation('');
+    ">Reset</button>
+
+  </div>
+
+  <script>
+    let calculation = '';
+
+
+    function updateCalculation(params) {
+      if (params === '') {
+        calculation = params;
+      } else if (params === '=') {
+        calculation = eval(calculation);
+      } else {
+        calculation += params;
+      }
+      console.log(calculation);
+      document.getElementById('conteiner').innerHTML = `${calculation}`;
+    }
+
+  </script>
+</body>
+</html>
