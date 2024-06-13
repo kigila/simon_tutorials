@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11q</title>
+</head>
+<body>
+  <script>
+    // 11q
+    function findIndex(array, word) {
+      // Set the index to -1 at the start (so we'll assume
+      // the string 'search' doesn't exist in the array).
+      // If we find the string 'search' in the array, we
+      // will update the index.
+      let index = -1;
+
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          index = i;
+          break;
+        }
+      }
+      return index;
+    }
+    console.log(findIndex(['hello', 'search', 'world', 'search', 'good'], 'goodx'));
+
+
+
+    // 11W
+    function uniqueArray(array) {
+      const result = [];
+
+      for (let i = 0; i < array.length; i++) {
+        if (findIndex(result, array[i]) === -1) {
+          result.push(array[i]);
+        }
+        if (findIndex(result, array[i]) === 1) {
+          continue;
+        }
+      }
+      console.log(result);
+    }
+    console.log('11w')
+    uniqueArray(['hello', 'search', 'world', 'search', 'good'])
+    uniqueArray(['green', 'red', 'blue', 'red', 'green'])
+
+
+
+
+
+
+    // 11r
+    function removeEgg(foods) {
+      let result = []
+      for (let i = 0; i < foods.length; i++) {
+        if (foods[i] === 'egg') {
+          continue;
+        }
+        result.push(foods[i]);
+      }
+      console.log(result)
+    }
+    removeEgg(['egg', 'onion', 'egg', 'garlic', 'hotdog', 'bred', 'egg'])
+
+
+
+    // 11s
+    function removeFistTwoEggs(foods) {
+      const result = []
+      let eggsRemoved = 0;
+
+      for (let i = 0; i < foods.length; i++) {
+        if (foods[i] === 'egg' && eggsRemoved < 2) {
+          eggsRemoved++;
+          continue;
+        }
+        result.push(foods[i]);
+      }
+
+      console.log(result)
+    }
+    removeFistTwoEggs(['egg', 'onion', 'egg', 'garlic', 'hotdog', 'bred', 'egg'])
+
+
+
+
+    // 11t
+    function removeLastTwoEggs(foods) {
+      const reversedFoods = foods.reverse();
+
+      const result = [];
+      let eggsremoved = 0;
+
+      for (let i = 0; i < reversedFoods.length; i++) {
+        if (reversedFoods[i] === 'egg' && eggsremoved < 2) {
+          eggsremoved++;
+          continue;
+        }
+        result.push(reversedFoods[i])
+      }
+
+      console.log(result.reverse())
+    }
+    removeLastTwoEggs(['egg', 'onion', 'egg', 'garlic', 'hotdog', 'bred', 'egg'])
+
+
+
+
+
+    // 11u
+    foods = ['egg', 'onion', 'egg', 'garlic', 'hotdog', 'bred', 'egg'];
+    function removeLastTwoEggsCopyArray(foods) {
+      const reversedFoods = foods.slice().reverse();
+
+      const result = [];
+      let eggsremoved = 0;
+
+      for (let i = 0; i < reversedFoods.length; i++) {
+        if (reversedFoods[i] === 'egg' && eggsremoved < 2) {
+          eggsremoved++;
+          continue;
+        }
+        result.push(reversedFoods[i])
+      }
+
+      console.log(result.reverse())
+    }
+    removeLastTwoEggsCopyArray(foods)
+    console.log(foods)
+
+
+    // 11v FIZZ BUZZ
+    for (let i = 1; i <= 20; i++) {
+      if (i % 15 === 0) {
+        console.log('FizzBuzz')
+        continue;
+      }
+      if (i % 3 === 0) {
+        console.log('Fizz')
+        continue;
+      }
+      if (i % 5 === 0) {
+        console.log('Buzz')
+        continue;
+      }
+      console.log(i)
+    }
+
+  </script>
+</body>
+</html>
