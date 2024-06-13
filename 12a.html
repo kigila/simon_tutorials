@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12a</title>
+  <style>
+
+    button {
+      padding: 6px 20px;
+      font-size: 20px;
+      border: none;
+
+      &.start-btn {
+        border-radius: 15px;
+      }
+
+      &.add-to-cart {
+        border-radius: 5px;
+        display: block;
+      }
+    }
+
+    .js-message {
+      font-size: 30px;
+      color: rgb(36, 100, 100);
+      margin: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <button class="start-btn" onclick="
+    document.querySelector('.start-btn').innerHTML = 'Loading';
+    setTimeout(function() {
+      document.querySelector('.start-btn').innerHTML = 'Finished';
+    }, 1000);
+  ">Start</button>
+
+  <hr>
+
+  <button class="add-to-cart" onclick="
+    displayMessage();
+  ">Add to cart</button>
+
+  <p class="js-message"></p>
+
+  <button onclick="
+    messages++;
+    displayNotification();
+  ">Add</button>
+
+  <button onclick="
+    if (messages > 0) {
+      messages--;
+
+      // If there are no new messages, stop displaying
+      // the notification in the tab.
+      if (messages === 0) {
+        stopNotification();
+      }
+    }
+  ">Remove</button>
+
+
+
+  <script>
+
+    // 12a
+    const add = () => {
+      console.log(2 + 3);
+    };
+
+    add();
+    add();
+
+    // 12b
+    function runTwice(fun) {
+      fun();
+      fun();
+    }
+
+    runTwice(() => {
+      console.log('12b');
+    })
+
+    runTwice(add);
+
+    // 12d
+
+
+    // 12f
+    let timeoutId;
+
+    function displayMessage() {
+      const messageElement = document.querySelector('.js-message');
+      messageElement.innerHTML = 'Added';
+
+      // First, cancel the previous timeout so that
+      // it doesn't remove the message too quickly.
+      clearTimeout(timeoutId);
+
+      timeoutId = setTimeout(function() {
+        messageElement.innerHTML = '';
+      }, 2000);
+    }
+
+    // 12g
+    // let count = 0;
+
+    // setInterval(function() {
+    //   if (count > 0) {
+    //     document.title = `(${count}) New messages`;
+    //   }
+    //   count++;
+    // }, 1000);
+
+    // 12h
+
+    let messages = 2;
+
+    // Save the intervalId in case we need to cancel it.
+    let intervalId;
+
+    // We'll use this variable to keep track of whether
+    // or not we're displaying the notification.
+    let isDisplayingNotification;
+
+    // Start displaying the notification in the tab
+    // when the page first loads.
+    displayNotification();
+
+    function displayNotification() {
+      // If we're already displaying the notification,
+      // stop this function because we don't want to
+      // create 2 intervals at the same time.
+      if (isDisplayingNotification) {
+        return;
+      }
+
+      isDisplayingNotification = true;
+
+      intervalId = setInterval(function() {
+        if (document.title === 'App') {
+          document.title = `(${messages}) New messages`;
+        } else {
+          document.title = 'App';
+        }
+      }, 1000);
+    }
+
+    function stopNotification() {
+      isDisplayingNotification = false;
+
+      clearInterval(intervalId);
+      document.title = 'App';
+    }
+
+  </script>
+</body>
+</html>

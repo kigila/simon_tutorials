@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12j</title>
+</head>
+<body>
+  <script>
+    // 12 J
+    const multiply = (a, b) => a * b;
+
+    console.log(multiply(2, 3));
+    console.log(multiply(7, 10));
+
+    // 12l
+    function countPositive(nums) {
+      let counter = 0;
+      nums.forEach(element => {
+        if (element > 0) { counter++ };
+      });
+      return counter
+    }
+
+    console.log(countPositive([1, -3, 5]));
+    console.log(countPositive([-2, 3, -5, 7, 10]));
+
+
+
+    // 12m
+    function addNum(nums, num) {
+     return nums.map(value => (value + num));
+    }
+
+    console.log(addNum([1, 2, 3], 5));
+
+    // 12n
+    function removeEgg(foods) {
+      return foods.filter(value => value !== 'egg');
+    }
+    console.log(removeEgg(['egg', 'apple', 'orange', 'egg', 'ice', 'egg']))
+
+    // 12o
+    function removeFistTwoEgg(foods) {
+      let eggsRemoved = 0;
+
+      return foods.filter(food => {
+        if (food === 'egg' && eggsRemoved < 2) {
+          eggsRemoved++;
+          return false;
+        }
+        return true;
+      })
+    }
+    console.log(removeFistTwoEgg(['egg', 'apple', 'orange', 'egg', 'ice', 'egg']))
+
+    // 12p
+
+
+
+
+  </script>
+</body>
+</html>
